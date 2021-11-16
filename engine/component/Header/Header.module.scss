@@ -1,0 +1,22 @@
+@import "../../../sass/engine.scss";
+
+.header_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+
+  h1 {
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+  }
+
+  input[type="search"] {
+    border: none;
+    min-width: 30vh;
+    max-height: 32px;
+    border-radius: 3px;
+    padding: 1rem;
+  }
+}

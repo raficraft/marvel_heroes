@@ -1,0 +1,13 @@
+.title {
+  color : red;
+  animation-name: toto;
+  animation-duration: 0.8s;
+  text-transform: uppercase;
+}
+
+@keyframes toto {
+
+  0%{opacity : 0}
+  100%{opacity: 1;}
+  
+}

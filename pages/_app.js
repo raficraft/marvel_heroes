@@ -1,7 +1,12 @@
-import '../styles/globals.css'
+import HeroesProvider from "../engine/context/characProvider";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <HeroesProvider>
+      <Component {...pageProps} />
+    </HeroesProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
