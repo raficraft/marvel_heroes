@@ -9,7 +9,9 @@
   height: 100vh;
   border: 1px solid black;
   border-radius: $middleRadius;
-  background-color: rgba(15, 27, 57, 1);
+  transition: all;
+  transition-duration: 0.5s;
+ 
 }
 
 .footer {
@@ -23,7 +25,27 @@
 
 .footer a {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+}
+
+.ironman{
+  background-color: rgba(163, 145, 6,.9);
+}
+
+.spiderman{
+  background-color: rgba(15, 27, 57, .9);
+}
+
+.hulk{
+  background-color: rgba(75, 3, 75,.9);
+}
+
+.thor{
+  background-color: rgba(41, 101, 255,.9);
+}
+.docteurstrange{
+  background-color: rgba(58, 53, 53, 0.9);
 }

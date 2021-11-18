@@ -1,12 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import React, { useContext } from "react";
 import Header from "../engine/component/Header/Header";
 import styles from "../styles/Home.module.scss";
 import Card from "./../engine/component/Card/Card";
+import { HeroesContext } from "./../engine/context/characProvider";
 
 export default function Home() {
+  const { heroe, setHeroe } = useContext(HeroesContext);
+
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${styles[heroe.current.heroesID]}`}>
       <Head>
         <title>Marvel Heroes</title>
         <meta
