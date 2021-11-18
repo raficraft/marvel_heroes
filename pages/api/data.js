@@ -12,6 +12,12 @@ export const heroes = [
     intelligence: 6,
     speed: 5,
     strength: 6,
+    imageSize: {
+      big: {
+        x: 500,
+        y: 469,
+      },
+    },
   },
   {
     id: 1,
@@ -26,6 +32,12 @@ export const heroes = [
     intelligence: 4,
     speed: 3,
     strength: 4,
+    imageSize: {
+      big: {
+        x: 500,
+        y: 500,
+      },
+    },
   },
   {
     id: 2,
@@ -40,6 +52,12 @@ export const heroes = [
     intelligence: 6,
     speed: 3,
     strength: 7,
+    imageSize: {
+      big: {
+        x: 820,
+        y: 630,
+      },
+    },
   },
   {
     id: 3,
@@ -54,6 +72,12 @@ export const heroes = [
     intelligence: 2,
     speed: 7,
     strength: 7,
+    imageSize: {
+      big: {
+        x: 500,
+        y: 522,
+      },
+    },
   },
   {
     id: 4,
@@ -68,5 +92,11 @@ export const heroes = [
     intelligence: 4,
     speed: 7,
     strength: 2,
+    imageSize: {
+      big: {
+        x: 820,
+        y: 630,
+      },
+    },
   },
 ];

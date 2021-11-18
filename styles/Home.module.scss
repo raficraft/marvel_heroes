@@ -1,16 +1,13 @@
 @import "../sass/engine.scss";
 
 .main {
-  margin: 2rem;
-  padding: 0 5rem;
+  padding: 0 5rem 2rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  border: 1px solid black;
-  border-radius: $middleRadius;
   transition: all;
   transition-duration: 0.5s;
+  position: relative;
  
 }
 
@@ -29,6 +26,48 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+}
+
+.identity{
+  background-color: cadetblue;
+  display: flex;
+  flex : 1;
+  justify-content: space-around;
+}
+
+.temp{
+  background-color: chartreuse;
+  display: flex;
+  flex: 1;
+  padding: 2rem;
+}
+
+.title {
+  color : red;
+  animation-name: toto;
+  animation-duration: 0.8s;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+.button{
+  position: absolute;
+  width : 30px;
+  height: 30px;
+  padding: 8px;
+  border-radius: 50%;
+
+  &Prev{
+    background-color: chocolate;
+    top : 200px;
+    left : 10px
+  }
+  &Next{
+    background-color: chocolate;
+    top : 200px;
+    right : 10px;
+  }
 }
 
 .ironman{

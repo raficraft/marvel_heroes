@@ -7,55 +7,21 @@ import RadialChart, { LabelChart } from "../RadialChart/RadialChart";
 
 export default function Card(data) {
   const { heroe, setHeroe } = useContext(HeroesContext);
-  const lastIndex = heroe.all.length - 1;
-
-  const [style, setStyle] = useState(styles);
-
-  useEffect(() => {
-    setStyle(styles);
-  }, [heroe]);
-
-  console.log(styles);
-
-  const nextHeroes = () => {
-    const nextID = heroe.all[heroe.current.id].id + 1;
-    nextID > lastIndex ? (nextID = 0) : (nextID = nextID);
-
-    setHeroe((s) => ({
-      ...s,
-      current: heroe.all[nextID],
-    }));
-  };
-
-  const prevHeroes = () => {
-    const nextID = heroe.all[heroe.current.id].id - 1;
-    nextID < 0 ? (nextID = lastIndex) : (nextID = nextID);
-
-    setHeroe((s) => ({
-      ...s,
-      current: heroe.all[nextID],
-    }));
-  };
 
   return (
-    <div className={style.container} key={heroe.current.id}>
-      <h1 className={style.title}>{heroe.current.heroes_name}</h1>
-
-      <div className={style.bigImg}>
-        <img
+    <div className={styles.container} key={heroe.current.id}>
+      <div className={styles.bigImg}>
+        <Image
           src={`/assets/heroes/${heroe.current.heroesID}/big.png`}
           alt="Picture of the author"
+          layout="intrinsic"
+          objectFit="contain"
+          width={heroe.current.imageSize.big.x}
+          height={heroe.current.imageSize.big.y}
         />
       </div>
 
-      <button className={style.button} onClick={prevHeroes}>
-        Prev
-      </button>
-      <button className={style.button} onClick={nextHeroes}>
-        Next
-      </button>
-
-      <div className={style.radial}>
+      <div className={styles.radial}>
         <RadialChart
           score={heroe.current.durability}
           strokeStyle={`rgba(67,186,63,1)`}
@@ -63,8 +29,8 @@ export default function Card(data) {
           label="durability"
           min={0}
           max={7}
-          size={60}
-          lineWidth={8}
+          size={100}
+          lineWidth={16}
           padding={5}
         >
           <LabelChart label="durability" />
@@ -76,8 +42,8 @@ export default function Card(data) {
           label="energy"
           min={0}
           max={7}
-          size={60}
-          lineWidth={8}
+          size={100}
+          lineWidth={16}
           padding={5}
         >
           <LabelChart label="energy" />
@@ -89,8 +55,8 @@ export default function Card(data) {
           label="fighting"
           min={0}
           max={7}
-          size={60}
-          lineWidth={8}
+          size={100}
+          lineWidth={16}
           padding={5}
         >
           <LabelChart label="fighting" />
@@ -102,8 +68,8 @@ export default function Card(data) {
           label="intelligence"
           min={0}
           max={7}
-          size={60}
-          lineWidth={8}
+          size={100}
+          lineWidth={16}
           padding={5}
         >
           <LabelChart label="intelligence" />
@@ -115,8 +81,8 @@ export default function Card(data) {
           label="speed"
           min={0}
           max={7}
-          size={60}
-          lineWidth={8}
+          size={100}
+          lineWidth={16}
           padding={5}
         >
           <LabelChart label="speed" />
@@ -128,8 +94,8 @@ export default function Card(data) {
           label="strength"
           min={0}
           max={7}
-          size={60}
-          lineWidth={8}
+          size={100}
+          lineWidth={16}
           padding={5}
         >
           <LabelChart label="strenght" />
