@@ -1,4 +1,4 @@
-export const drawPie = ({
+export const drawRadial = ({
   ctx,
   size = 100,
   lineWidth = 20,

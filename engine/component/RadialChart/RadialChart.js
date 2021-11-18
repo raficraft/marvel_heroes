@@ -1,12 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
-import { drawCircle, drawPie } from "./draw";
+import { drawCircle, drawRadial } from "./draw";
 
-import styles from "./PieChart.module.scss";
+import styles from "./RadialChart.module.scss";
 
-export default function PieChart({
-  level,
+export default function RadialChart({
+  score,
   color,
-  legend,
+  label,
   min,
   max,
   size,
@@ -32,11 +32,12 @@ export default function PieChart({
 
     const colorCircle = colorRef.current;
     const ctx = colorCircle.getContext("2d");
+    //draw background circle
     drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
   };
 
   useEffect(() => {
-    if (inputValue < level) {
+    if (inputValue < score) {
       const interval = setInterval(() => {
         increment();
       }, 4000 / 60);
@@ -48,7 +49,8 @@ export default function PieChart({
     const canvas = canvasRef.current;
     let ctx = canvas.getContext("2d");
 
-    drawPie({
+    //
+    drawRadial({
       ctx,
       size,
       lineWidth,
@@ -60,10 +62,10 @@ export default function PieChart({
   }, [inputValue]);
 
   return (
-    <div className={styles.pieContainer}>
-      <div className={styles.pieContent}>
-        <canvas width="100px" height="100px" ref={canvasRef}></canvas>
-        <canvas width="100px" height="100px" ref={colorRef}></canvas>
+    <div className={styles.radialContainer}>
+      <div className={styles.radialContent}>
+        <canvas width={size} height={size} ref={canvasRef}></canvas>
+        <canvas width={size} height={size} ref={colorRef}></canvas>
         <input
           type="hidden"
           value={inputValue}
@@ -71,10 +73,9 @@ export default function PieChart({
           min={min}
           max={max}
         />
-        <input type="text" value={level} disabled />
+        <input type="text" value={score} disabled />
+        <p className={styles.radialLabel}>{label}</p>
       </div>
-
-      <p className={styles.pieLegend}>{legend}</p>
     </div>
   );
 }
