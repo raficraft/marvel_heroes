@@ -9,7 +9,7 @@ export const drawRadial = ({
 
   ctx.clearRect(0, 0, size, size);
   ctx.beginPath();
-  ctx.arc(size / 2, size / 2, size / 2 - padding, 0, 2 * Math.PI);
+  ctx.arc(size / 2, size / 2, size / 2 - padding * 2, 0, 2 * Math.PI);
   ctx.strokeStyle = strokeStyle;
   ctx.lineWidth = lineWidth;
   ctx.shadowOffsetX = 2;
@@ -34,7 +34,7 @@ export const drawCircle = ({
   ctx.arc(
     size / 2,
     size / 2,
-    size / 2 - padding,
+    size / 2 - padding * 2,
     -(1 / 2) * Math.PI,
     ratio * 2 * Math.PI - (1 / 2) * Math.PI
   );

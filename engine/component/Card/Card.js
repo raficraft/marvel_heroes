@@ -3,7 +3,7 @@ import { HeroesContext } from "../../context/characProvider";
 import Image from "next/image";
 
 import styles from "./Card.module.scss";
-import RadialChart from "../RadialChart/RadialChart";
+import RadialChart, { LabelChart } from "../RadialChart/RadialChart";
 
 export default function Card(data) {
   const { heroe, setHeroe } = useContext(HeroesContext);
@@ -65,8 +65,10 @@ export default function Card(data) {
           max={7}
           size={60}
           lineWidth={8}
-          padding={10}
-        />
+          padding={5}
+        >
+          <LabelChart label="durability" />
+        </RadialChart>
         <RadialChart
           score={heroe.current.energy}
           strokeStyle={`rgba(181,40,123,1)`}
@@ -76,8 +78,10 @@ export default function Card(data) {
           max={7}
           size={60}
           lineWidth={8}
-          padding={10}
-        />
+          padding={5}
+        >
+          <LabelChart label="energy" />
+        </RadialChart>
         <RadialChart
           score={heroe.current.fighting}
           strokeStyle={`rgba(23,149,214,1)`}
@@ -87,8 +91,10 @@ export default function Card(data) {
           max={7}
           size={60}
           lineWidth={8}
-          padding={10}
-        />
+          padding={5}
+        >
+          <LabelChart label="fighting" />
+        </RadialChart>
         <RadialChart
           score={heroe.current.intelligence}
           strokeStyle={`rgba(252,214,4,1)`}
@@ -98,8 +104,10 @@ export default function Card(data) {
           max={7}
           size={60}
           lineWidth={8}
-          padding={10}
-        />
+          padding={5}
+        >
+          <LabelChart label="intelligence" />
+        </RadialChart>
         <RadialChart
           score={heroe.current.speed}
           strokeStyle={`rgba(230,36,41,1)`}
@@ -109,8 +117,10 @@ export default function Card(data) {
           max={7}
           size={60}
           lineWidth={8}
-          padding={10}
-        />
+          padding={5}
+        >
+          <LabelChart label="speed" />
+        </RadialChart>
         <RadialChart
           score={heroe.current.strength}
           strokeStyle={`rgba(255,118,0,1)`}
@@ -120,8 +130,10 @@ export default function Card(data) {
           max={7}
           size={60}
           lineWidth={8}
-          padding={10}
-        />
+          padding={5}
+        >
+          <LabelChart label="strenght" />
+        </RadialChart>
       </div>
     </div>
   );

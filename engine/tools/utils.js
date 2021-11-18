@@ -56,6 +56,19 @@ export const filterData = (array, search) => {
   return result;
 };
 
+export function makeStyle(array) {
+  let style = "";
+
+  for (const key in array) {
+    if (Object.hasOwnProperty.call(array, key)) {
+      const element = array[key];
+      style += `${key} : ${element}; `;
+    }
+  }
+
+  return style;
+}
+
 export const getDateByTimeStamp = (time, method) => {
   let MyDate = new Date(time);
   let MyDateString;

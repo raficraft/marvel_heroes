@@ -13,7 +13,11 @@ export default function RadialChart({
   lineWidth,
   strokeStyle,
   padding,
+  labelPosition,
+  children,
 }) {
+  console.log("children : ", children);
+
   const canvasRef = useRef();
   const colorRef = useRef();
   const inputRef = useRef();
@@ -63,6 +67,7 @@ export default function RadialChart({
 
   return (
     <div className={styles.radialContainer}>
+      {children && labelPosition === "top" && children}
       <div className={styles.radialContent}>
         <canvas width={size} height={size} ref={canvasRef}></canvas>
         <canvas width={size} height={size} ref={colorRef}></canvas>
@@ -74,8 +79,13 @@ export default function RadialChart({
           max={max}
         />
         <input type="text" value={score} disabled />
-        <p className={styles.radialLabel}>{label}</p>
       </div>
+      {(children && labelPosition === "bottom") ||
+        (children && !labelPosition && children)}
     </div>
   );
 }
+
+export const LabelChart = ({ label }) => {
+  return <p className={styles.radialLabel}>{label}</p>;
+};
