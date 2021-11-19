@@ -1,21 +1,14 @@
 import Head from "next/head";
-import React, {
-  useContext,
-  useLayoutEffect,
-  useCallback,
-  useState,
-  useEffect,
-} from "react";
+import React, { useContext } from "react";
 import Header from "../engine/component/Header/Header";
 import styles from "../styles/Home.module.scss";
 import Card from "./../engine/component/Card/Card";
 import { HeroesContext } from "./../engine/context/characProvider";
-import { debounce } from "./../engine/tools/utils";
 
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
 
-  const [lastIndex, setLastIndex] = useState(heroe.all.length - 1);
+  const lastIndex = heroe.all.length - 1;
 
   const nextHeroes = () => {
     const nextID = heroe.all[heroe.current.id].id + 1;
