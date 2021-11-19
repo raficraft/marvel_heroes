@@ -32,22 +32,18 @@ export default function RadialChart({
     const input = inputRef.current;
     const min = parseInt(input.attributes.min.value);
     const max = parseInt(input.attributes.max.value);
-    let ratio = (input.value - min) / (max - min);
 
     const colorCircle = colorRef.current;
     const ctx = colorCircle.getContext("2d");
     //draw background circle
-    drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
-  };
 
-  useEffect(() => {
-    if (inputValue < score) {
-      const interval = setInterval(() => {
-        increment();
-      }, 4000 / 60);
-      return () => clearInterval(interval);
+    for (let index = 0; index < score; index++) {
+      let ratio = (index - min) / (max - min);
+      setTimeout(() => {
+        drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
+      }, index * (4000 / 60));
     }
-  });
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -62,8 +58,8 @@ export default function RadialChart({
       strokeStyle: "rgba(216,216,216,1)",
     });
 
-    getCircle();
-  }, [inputValue]);
+    getCircle(inputValue, score);
+  }, []);
 
   console.log("RADIAL CHART");
 
