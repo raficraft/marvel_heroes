@@ -44,6 +44,7 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${styles[heroe.current.heroesID]}`}>
         <Header />
+
         <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
         <section className={styles.identity}>
           <div className={styles.temp}>

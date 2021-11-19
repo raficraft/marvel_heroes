@@ -34,6 +34,7 @@ export default function Card(data) {
           size={100}
           lineWidth={16}
           padding={5}
+          animationInterval={1}
         >
           <LabelChart label="durability" />
         </RadialChart>
@@ -47,6 +48,7 @@ export default function Card(data) {
           size={100}
           lineWidth={16}
           padding={5}
+          animationInterval={2}
         >
           <LabelChart label="energy" />
         </RadialChart>
@@ -60,6 +62,7 @@ export default function Card(data) {
           size={100}
           lineWidth={16}
           padding={5}
+          animationInterval={3}
         >
           <LabelChart label="fighting" />
         </RadialChart>
@@ -73,6 +76,7 @@ export default function Card(data) {
           size={100}
           lineWidth={16}
           padding={5}
+          animationInterval={4}
         >
           <LabelChart label="intelligence" />
         </RadialChart>
@@ -86,6 +90,7 @@ export default function Card(data) {
           size={100}
           lineWidth={16}
           padding={5}
+          animationInterval={5}
         >
           <LabelChart label="speed" />
         </RadialChart>
@@ -99,6 +104,7 @@ export default function Card(data) {
           size={100}
           lineWidth={16}
           padding={5}
+          animationInterval={6}
         >
           <LabelChart label="strenght" />
         </RadialChart>

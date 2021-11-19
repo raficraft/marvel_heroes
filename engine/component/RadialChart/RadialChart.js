@@ -6,7 +6,6 @@ import styles from "./RadialChart.module.scss";
 export default function RadialChart({
   score,
   color,
-  label,
   min,
   max,
   size,
@@ -14,10 +13,9 @@ export default function RadialChart({
   strokeStyle,
   padding,
   labelPosition,
+  animationInterval = 1,
   children,
 }) {
-
-
   const canvasRef = useRef();
   const colorRef = useRef();
   const inputRef = useRef();
@@ -36,23 +34,22 @@ export default function RadialChart({
     const colorCircle = colorRef.current;
     const ctx = colorCircle.getContext("2d");
     //draw background circle
-
-    for (let index = 0; index <= score * 10; index++) {
-      let ratio = (index - min) / (max - min) / 10;
-      if (index === 1) {
-        console.log(ratio + " " + score, index);
+    setTimeout(() => {
+      for (let index = 0; index <= score * 10; index++) {
+        let ratio = (index - min) / (max - min) / 10;
+        if (index === 1) {
+          console.log(ratio + " " + score, index);
+        }
+        setTimeout(() => {
+          drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
+        }, index * (1000 / 60));
       }
-      setTimeout(() => {
-        drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
-      }, index * (1000 / 60));
-    }
+    }, animationInterval * 300);
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
     let ctx = canvas.getContext("2d");
-
-    //
     drawRadial({
       ctx,
       size,
@@ -63,8 +60,6 @@ export default function RadialChart({
 
     getCircle(inputValue, score);
   }, []);
-
-  console.log("RADIAL CHART");
 
   return (
     <div className={styles.radialContainer}>
