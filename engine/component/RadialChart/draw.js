@@ -18,16 +18,7 @@ export const drawRadial = ({
   ctx.stroke();
 };
 
-export const drawCircle = ({
-  ctx,
-  size,
-  lineWidth,
-  strokeStyle,
-  padding,
-  ratio,
-}) => {
-  console.log(strokeStyle);
-  console.log(ratio);
+export const drawCircle = ({ ctx, size, lineWidth, strokeStyle, padding, ratio }) => {
   ctx.clearRect(0, 0, 100, 100);
   ctx.beginPath();
   //Full Circle ctx.arc(100, 100, 85, -(1 / 2) * Math.PI, 3/2 Math.PI);

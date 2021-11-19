@@ -8,6 +8,8 @@ import RadialChart, { LabelChart } from "../RadialChart/RadialChart";
 export default function Card(data) {
   const { heroe, setHeroe } = useContext(HeroesContext);
 
+  console.log("render CARD");
+
   return (
     <div className={styles.container} key={heroe.current.id}>
       <div className={styles.bigImg}>

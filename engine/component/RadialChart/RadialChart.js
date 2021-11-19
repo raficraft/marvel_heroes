@@ -16,7 +16,7 @@ export default function RadialChart({
   labelPosition,
   children,
 }) {
-  console.log("children : ", children);
+
 
   const canvasRef = useRef();
   const colorRef = useRef();
@@ -64,6 +64,8 @@ export default function RadialChart({
 
     getCircle();
   }, [inputValue]);
+
+  console.log("RADIAL CHART");
 
   return (
     <div className={styles.radialContainer}>

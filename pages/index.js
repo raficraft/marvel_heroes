@@ -4,6 +4,7 @@ import Header from "../engine/component/Header/Header";
 import styles from "../styles/Home.module.scss";
 import Card from "./../engine/component/Card/Card";
 import { HeroesContext } from "./../engine/context/characProvider";
+import { debounce } from "./../engine/tools/utils";
 
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
@@ -11,14 +12,17 @@ export default function Home() {
   const lastIndex = heroe.all.length - 1;
 
   useLayoutEffect(() => {
-    document.addEventListener("keyup", (e) => {
-      console.log(e.key);
-      if (e.key === "ArrowLeft") {
-        prevHeroes();
-      } else if (e.key === "ArrowRight") {
-        nextHeroes();
-      }
-    });
+    document.addEventListener(
+      "keyup",
+      debounce((e) => {
+        console.log(e.key);
+        if (e.key === "ArrowLeft") {
+          prevHeroes();
+        } else if (e.key === "ArrowRight") {
+          nextHeroes();
+        }
+      }, 100)
+    );
   });
 
   const nextHeroes = () => {
@@ -40,6 +44,8 @@ export default function Home() {
       current: heroe.all[nextID],
     }));
   };
+
+  console.log("render INDEX");
 
   return (
     <>

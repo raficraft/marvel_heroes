@@ -32,11 +32,9 @@ export const SearchBar = () => {
     }
   };
 
-  console.log("render");
+  console.log("render SEARCH BAR");
 
   const getHeroes = (key) => {
-    console.log("heroes keys", key);
-
     setHeroe((s) => ({
       ...s,
       current: key,
@@ -57,7 +55,6 @@ export const SearchBar = () => {
       {ifSearchRes && searchAction === true && (
         <ul className={styles.searchRes}>
           {searchRes.map((item, key) => {
-            console.log("item");
             return (
               <li
                 key={key}
