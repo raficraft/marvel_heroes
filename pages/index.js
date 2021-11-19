@@ -5,6 +5,8 @@ import styles from "../styles/Home.module.scss";
 import Card from "./../engine/component/Card/Card";
 import { HeroesContext } from "./../engine/context/characProvider";
 
+import Text_animate from "./../engine/component/TextAnimate/TextAnimate";
+
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
 
@@ -48,7 +50,15 @@ export default function Home() {
         <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
         <section className={styles.identity}>
           <div className={styles.temp}>
-            <p className={styles.whiteText}>{heroe.current.desc}</p>
+            <Text_animate
+              params={{
+                method: "letterByLetter",
+                keyframesName: "rigthToLeft",
+                shiftDelay: 10,
+              }}
+            >
+              <p className={styles.whiteText}>{heroe.current.desc}</p>
+            </Text_animate>
           </div>
           <Card />
         </section>

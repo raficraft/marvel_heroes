@@ -18,6 +18,7 @@ export default function Text_animate({ children, ...props }) {
       shiftDelay: 50, //Délai d'animation entre deux mots ou deux lettre.
       animationOffset: 0, //Délai de lancement de l'animation global.
       spacingDimension: "1.375rem", // Dimension d'espacement entre les mots pour l'animation lettre par lettre
+      fontSize: "16px",
     },
     ...props.params,
   };
@@ -80,7 +81,7 @@ export default function Text_animate({ children, ...props }) {
         display: inline-block;
         overflow: hidden;
         opacity: 0;
-        font-size: 48px;
+        font-size: ${params.fontSize};
         animation-name: ${animationName};
         animation-fill-mode: forwards;
         animation-duration: ${params.animationDuration}ms;
