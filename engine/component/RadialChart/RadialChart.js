@@ -37,11 +37,14 @@ export default function RadialChart({
     const ctx = colorCircle.getContext("2d");
     //draw background circle
 
-    for (let index = 0; index < score; index++) {
-      let ratio = (index - min) / (max - min);
+    for (let index = 0; index <= score * 10; index++) {
+      let ratio = (index - min) / (max - min) / 10;
+      if (index === 1) {
+        console.log(ratio + " " + score, index);
+      }
       setTimeout(() => {
         drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
-      }, index * (4000 / 60));
+      }, index * (1000 / 60));
     }
   };
 
