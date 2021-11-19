@@ -52,10 +52,11 @@ export default function Home() {
           <div className={styles.temp}>
             <Text_animate
               params={{
-                method: "letterByLetter",
                 keyframesName: "rigthToLeft",
                 shiftDelay: 10,
+                keyframesName: "flipX",
               }}
+              key={heroe.current.id}
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>
             </Text_animate>
