@@ -1,0 +1,14 @@
+@import "../../../sass/engine.scss";
+
+.searchBar {
+  border: none;
+  min-width: 20vh;
+  max-height: 32px;
+  border-radius: 3px;
+  padding: 1rem;
+  transition: all .5s;
+  &:focus{
+    min-width : 25vh;
+    outline: none;
+  }
+}

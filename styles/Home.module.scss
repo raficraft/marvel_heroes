@@ -36,7 +36,7 @@
 }
 
 .temp{
-  background-color: chartreuse;
+  background-color: rgb(0, 8, 255);
   display: flex;
   flex: 1;
   padding: 2rem;
@@ -50,25 +50,42 @@
   font-weight: bold;
 }
 
-
-.button{
-  position: absolute;
-  width : 30px;
-  height: 30px;
-  padding: 8px;
-  border-radius: 50%;
+.button_container{
+  position: fixed;
+  background-color: cornflowerblue;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width : 3rem;
+  
 
   &Prev{
-    background-color: chocolate;
-    top : 200px;
     left : 10px
   }
   &Next{
-    background-color: chocolate;
-    top : 200px;
     right : 10px;
   }
+
+  .button{
+    $size : 3rem;
+    @include size($size,$size);
+    border-radius: 50%; 
+    transition : 0.5s;
+
+    &:hover{
+      transform: scale(1.2);
+    }
+  
+  }
+
 }
+
+.whiteText{
+  color :white
+}
+
+
 
 .ironman{
   background-color: rgba(163, 145, 6,.9);

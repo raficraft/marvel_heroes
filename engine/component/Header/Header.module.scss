@@ -9,15 +9,14 @@
 
   h1 {
     font-size: 3rem;
+    line-height: 3rem;
     color: white;
     font-weight: bold;
   }
 
-  input[type="search"] {
-    border: none;
-    min-width: 20vh;
-    max-height: 32px;
-    border-radius: 3px;
-    padding: 1rem;
+  .marvelText{
+    background-color : $marvelColor;
+    color: white;
+    padding : 0px 5px;
   }
 }
