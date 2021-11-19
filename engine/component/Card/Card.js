@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { HeroesContext } from "../../context/characProvider";
 import Image from "next/image";
 

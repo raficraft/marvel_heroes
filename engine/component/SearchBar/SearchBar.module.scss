@@ -1,14 +1,39 @@
 @import "../../../sass/engine.scss";
 
-.searchBar {
-  border: none;
-  min-width: 20vh;
-  max-height: 32px;
-  border-radius: 3px;
-  padding: 1rem;
-  transition: all .5s;
-  &:focus{
-    min-width : 25vh;
-    outline: none;
+.searchContainer {
+  position: relative;
+
+  .searchBar {
+    border: none;
+    min-width: 20vh;
+    max-height: 32px;
+    border-radius: 3px;
+    padding: 1rem;
+    transition: all 0.5s;
+    &:focus {
+      min-width: 25vh;
+      outline: none;
+    }
+
+    
+  }
+
+  .searchRes {
+    display: block;
+    background-color: white;
+    position: absolute;
+    margin : 0.5rem 0 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    li {
+      background-color: white;
+      padding : 0.5rem;
+      cursor : pointer;
+      &:hover{
+        background-color: yellow;
+      }
+    }
   }
 }
+

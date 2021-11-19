@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useContext } from "react";
+import React, { useContext, useLayoutEffect } from "react";
 import Header from "../engine/component/Header/Header";
 import styles from "../styles/Home.module.scss";
 import Card from "./../engine/component/Card/Card";
@@ -9,6 +9,17 @@ export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
 
   const lastIndex = heroe.all.length - 1;
+
+  useLayoutEffect(() => {
+    document.addEventListener("keyup", (e) => {
+      console.log(e.key);
+      if (e.key === "ArrowLeft") {
+        prevHeroes();
+      } else if (e.key === "ArrowRight") {
+        nextHeroes();
+      }
+    });
+  });
 
   const nextHeroes = () => {
     const nextID = heroe.all[heroe.current.id].id + 1;
