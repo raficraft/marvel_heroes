@@ -60,13 +60,11 @@ export const textAnimate = (animation) => {
         0%{
           opacity: 0;
           filter: blur(10px);
-        }
-      
+        }      
         50% {
           opacity: 0.5;
           transform: rotateY(180deg)
-        }
-      
+        }      
         100% {
           opacity: 1;
           transform: rotateY(360deg)
@@ -108,3 +106,15 @@ export const textAnimate = (animation) => {
     `);
   }
 };
+
+export const translatleByBottom = keyframes`
+0%{ 
+  opacity : 0;
+  transform: translateY(100%);
+  filter: blur(10px);
+}
+100%{ 
+  opacity : 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}`;

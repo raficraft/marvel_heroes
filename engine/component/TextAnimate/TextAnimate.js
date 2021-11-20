@@ -6,8 +6,6 @@ import { createStyled } from "./animation";
 export default function Text_animate({ children, ...props }) {
   // console.log(children.type);
 
-  console.log(createStyled(props.styles));
-
   const content = {
     ...{ tag: children.type, text: children.props.children },
     ...props.content,
@@ -16,12 +14,7 @@ export default function Text_animate({ children, ...props }) {
     ...{
       method: "wordByWord",
       lineBreak: [],
-      keyframesName: "flipY", //nom de l'animation à appliqué
-      animationDuration: 500, //Durée de l'animation des mots ou lettre du texte
-      shiftDelay: 50, //Délai d'animation entre deux mots ou deux lettre.
-      animationOffset: 0, //Délai de lancement de l'animation global.
       spacingDimension: "1.375rem", // Dimension d'espacement entre les mots pour l'animation lettre par lettre
-      fontSize: "16px",
     },
     ...props.params,
   };
@@ -32,19 +25,11 @@ export default function Text_animate({ children, ...props }) {
   let animationName = textAnimate(params.keyframesName); //Styled Compononent keyframes
 
   const fullText = (content) => {
+    let styleByProps = createStyled(props.styles);
     let Wrapper = styled.span`
-      display: inline-block;
-      overflow: hidden;
-      opacity: 0;
-      line-height: 1.5rem;
-      animation-name: ${animationName};
-      animation-fill-mode: forwards;
-      animation-duration: ${params.animationDuration}ms;
+      ${styleByProps};
+      animation-name: ${props.frames};
     `;
-
-    console.log("dif", Wrapper);
-
-    //Component
 
     let span = <Wrapper key="fullText_animate">{content}</Wrapper>;
 
@@ -58,14 +43,11 @@ export default function Text_animate({ children, ...props }) {
     return words.map((word, key) => {
       const shiftDelay = (key + 1) * params.shiftDelay + params.animationOffset;
 
+      let styleByProps = createStyled(props.styles);
       let Wrapper = styled.span`
-        display: inline-block;
-        overflow: hidden;
-        opacity: 0;
-        animation-name: ${animationName};
-        animation-fill-mode: forwards;
-        animation-duration: ${params.animationDuration}ms;
-        animation-delay: ${shiftDelay}ms;
+        ${styleByProps};
+        animation-name: ${props.frames};
+        animation-delay: ${shiftDelay};
       `;
 
       //Component

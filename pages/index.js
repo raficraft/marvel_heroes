@@ -6,6 +6,7 @@ import Card from "./../engine/component/Card/Card";
 import { HeroesContext } from "./../engine/context/characProvider";
 
 import Text_animate from "./../engine/component/TextAnimate/TextAnimate";
+import { translatleByBottom } from "../engine/component/TextAnimate/styledAnimation";
 
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
@@ -53,26 +54,18 @@ export default function Home() {
             <Text_animate
               params={{
                 method: "fullText",
-                keyframesName: "bottomToTop",
-                shiftDelay: 10,
-                animationDuration: 2000,
               }}
               key={heroe.current.id}
+              frames={translatleByBottom}
               styles={{
                 tag: "span",
+                display: "inline-block",
+                overflow: "hidden",
                 "font-size": "16px",
                 "animation-fill-mode": "forwards",
                 "animation-duration": "500ms",
-                "animation-name": {
-                  0: {
-                    opacity: "0",
-                    transform: "translateZ(100%)",
-                  },
-                  100: {
-                    opacity: "1",
-                    transform: "translateZ(0)",
-                  },
-                },
+                "line-height": "1.5rem",
+                opacity: "0.4",
               }}
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>
