@@ -6,6 +6,12 @@ import { createStyled } from "./animation";
 export default function Text_animate({ children, ...props }) {
   // console.log(children.type);
 
+  console.log("children in text animation", children);
+
+  const [classNameByProps, setClassNameByProps] = useState(
+    children.props.className
+  );
+
   const content = {
     ...{ tag: children.type, text: children.props.children },
     ...props.content,
@@ -24,14 +30,14 @@ export default function Text_animate({ children, ...props }) {
   //console.log(params.keyframesName);
   let animationName = textAnimate(params.keyframesName); //Styled Compononent keyframes
 
-  const fullText = (content) => {
+  const fullText = (children) => {
     let styleByProps = createStyled(props.styles);
     let Wrapper = styled.span`
       ${styleByProps};
       animation-name: ${props.frames};
     `;
 
-    let span = <Wrapper key="fullText_animate">{content}</Wrapper>;
+    let span = <Wrapper key="fullText_animate">{children}</Wrapper>;
 
     return span;
   };
@@ -136,5 +142,5 @@ export default function Text_animate({ children, ...props }) {
   }, []);
 
   console.log("render Text Animate");
-  return <content.tag>{text}</content.tag>;
+  return <content.tag className={classNameByProps}>{text}</content.tag>;
 }

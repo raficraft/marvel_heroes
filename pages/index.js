@@ -6,7 +6,10 @@ import Card from "./../engine/component/Card/Card";
 import { HeroesContext } from "./../engine/context/characProvider";
 
 import Text_animate from "./../engine/component/TextAnimate/TextAnimate";
-import { translatleByBottom } from "../engine/component/TextAnimate/styledAnimation";
+import {
+  translateLeftToRight,
+  translatleByBottom,
+} from "../engine/component/TextAnimate/styledAnimation";
 
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
@@ -48,9 +51,24 @@ export default function Home() {
       <main className={`${styles.main} ${styles[heroe.current.heroesID]}`}>
         <Header />
 
-        <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
         <section className={styles.identity}>
           <div className={styles.temp}>
+            <Text_animate
+              params={{
+                method: "fullText",
+              }}
+              key={heroe.current.id + "_title"}
+              frames={translateLeftToRight}
+              styles={{
+                display: "inline-block",
+                overflow: "hidden",
+                "animation-fill-mode": "forwards",
+                "animation-duration": "500ms",
+              }}
+            >
+              <h1 className={styles.title}>{heroe.current.heroes_name} </h1>
+            </Text_animate>
+
             <Text_animate
               params={{
                 method: "fullText",
@@ -58,14 +76,12 @@ export default function Home() {
               key={heroe.current.id}
               frames={translatleByBottom}
               styles={{
-                tag: "span",
                 display: "inline-block",
                 overflow: "hidden",
                 "font-size": "16px",
                 "animation-fill-mode": "forwards",
                 "animation-duration": "500ms",
                 "line-height": "1.5rem",
-                opacity: "0.4",
               }}
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>

@@ -1,24 +1,29 @@
+@import "../../../sass/engine.scss";
+
 .radialContainer{
   
   display: flex;
   flex-direction: column;
-  margin: 10px;
-
-  
+  margin: 10px; 
 
 
   .radialContent {
-    min-width: 100px;
-    height: 100px;
+    min-width: 120px;
+    height: 120px;
     background-color: white;
     position: relative;
+    border-radius: 3px;
+    border : 3px solid rgb(182, 182, 182);
+    box-sizing: content-box;
+    box-shadow: 2px 6px 4px 0 rgba(60,64,67,.15), 
+    2px 2px 6px 4px rgba(60,64,67,.5);;
   
     input {
       position: absolute;
-      top: 35px;
+      top: 34px;
       left: 0px;
-      max-width: 100px;
-      font-size: 30px;
+      max-width: 120px;
+      font-size: 48px;
       text-align: center;
       border: none;
   

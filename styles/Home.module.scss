@@ -29,22 +29,24 @@
 }
 
 .identity{
-  background-color: cadetblue;
   display: flex;
   flex : 1;
   justify-content: space-around;
 }
 
 .temp{
-  background-color: rgb(0, 8, 255);
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  flex: 4;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
 }
 
 .title {
+  align-self: flex-start;
+  padding-bottom : 2rem;
   color : red;
-  animation-name: toto;
   animation-duration: 0.8s;
   text-transform: uppercase;
   font-weight: bold;
@@ -52,7 +54,6 @@
 
 .button_container{
   position: fixed;
-  background-color: cornflowerblue;
   height: 100%;
   display: flex;
   justify-content: center;
