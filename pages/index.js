@@ -52,11 +52,28 @@ export default function Home() {
           <div className={styles.temp}>
             <Text_animate
               params={{
-                keyframesName: "rigthToLeft",
+                method: "fullText",
+                keyframesName: "bottomToTop",
                 shiftDelay: 10,
-                keyframesName: "flipX",
+                animationDuration: 2000,
               }}
               key={heroe.current.id}
+              styles={{
+                tag: "span",
+                "font-size": "16px",
+                "animation-fill-mode": "forwards",
+                "animation-duration": "500ms",
+                "animation-name": {
+                  0: {
+                    opacity: "0",
+                    transform: "translateZ(100%)",
+                  },
+                  100: {
+                    opacity: "1",
+                    transform: "translateZ(0)",
+                  },
+                },
+              }}
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>
             </Text_animate>

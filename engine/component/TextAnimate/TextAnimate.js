@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { textAnimate } from "./styledAnimation";
+import { createStyled } from "./animation";
 
 export default function Text_animate({ children, ...props }) {
   // console.log(children.type);
+
+  console.log(createStyled(props.styles));
 
   const content = {
     ...{ tag: children.type, text: children.props.children },
@@ -27,6 +30,26 @@ export default function Text_animate({ children, ...props }) {
 
   //console.log(params.keyframesName);
   let animationName = textAnimate(params.keyframesName); //Styled Compononent keyframes
+
+  const fullText = (content) => {
+    let Wrapper = styled.span`
+      display: inline-block;
+      overflow: hidden;
+      opacity: 0;
+      line-height: 1.5rem;
+      animation-name: ${animationName};
+      animation-fill-mode: forwards;
+      animation-duration: ${params.animationDuration}ms;
+    `;
+
+    console.log("dif", Wrapper);
+
+    //Component
+
+    let span = <Wrapper key="fullText_animate">{content}</Wrapper>;
+
+    return span;
+  };
 
   const wordByWord = (content) => {
     const words = content.trim(" ").split(" ");
@@ -117,6 +140,10 @@ export default function Text_animate({ children, ...props }) {
     switch (params.method) {
       case "letterByLetter":
         newText = letterByLetter(content.text);
+        setText(newText);
+        break;
+      case "fullText":
+        newText = fullText(content.text);
         setText(newText);
         break;
       default:

@@ -1,7 +1,7 @@
 import { keyframes } from "styled-components";
 
 export const textAnimate = (animation) => {
-  let animationText = keyframes``;
+  let animationText = ``;
 
   switch (animation) {
     case "backToFront":
@@ -46,7 +46,7 @@ export const textAnimate = (animation) => {
       return (animationText = keyframes`
         0%{ 
           opacity : 0;
-          transform: translateY(100%);
+          transform: translateY(1000%);
           filter: blur(1px);
         }
         100%{ 

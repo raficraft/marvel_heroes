@@ -3,6 +3,7 @@ import { heroes } from "./../../pages/api/data";
 
 export const HeroesContext = createContext();
 
+
 export default function HeroesProvider({ children }) {
   const [heroe, setHeroe] = useState({
     current: heroes[0],
@@ -15,3 +16,4 @@ export default function HeroesProvider({ children }) {
     </HeroesContext.Provider>
   );
 }
+
