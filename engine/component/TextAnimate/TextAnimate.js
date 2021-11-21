@@ -6,6 +6,12 @@ import { createStyled } from "./animation";
 export default function Text_animate({ children, ...props }) {
   // console.log(children.type);
 
+  console.log("children in text animation", children.props.children);
+
+  const [classNameByProps, setClassNameByProps] = useState(
+    children.props.className
+  );
+
   const content = {
     ...{ tag: children.type, text: children.props.children },
     ...props.content,
@@ -15,6 +21,7 @@ export default function Text_animate({ children, ...props }) {
       method: "wordByWord",
       lineBreak: [],
       spacingDimension: "1.375rem", // Dimension d'espacement entre les mots pour l'animation lettre par lettre
+      animationOffset: 0,
     },
     ...props.params,
   };
@@ -24,19 +31,20 @@ export default function Text_animate({ children, ...props }) {
   //console.log(params.keyframesName);
   let animationName = textAnimate(params.keyframesName); //Styled Compononent keyframes
 
-  const fullText = (content) => {
+  const fullText = (children) => {
     let styleByProps = createStyled(props.styles);
     let Wrapper = styled.span`
       ${styleByProps};
       animation-name: ${props.frames};
     `;
 
-    let span = <Wrapper key="fullText_animate">{content}</Wrapper>;
+    let span = <Wrapper key="fullText_animate">{children}</Wrapper>;
 
     return span;
   };
 
   const wordByWord = (content) => {
+    console.log("yolo", content);
     const words = content.trim(" ").split(" ");
     const countWord = words.length;
 
@@ -47,7 +55,7 @@ export default function Text_animate({ children, ...props }) {
       let Wrapper = styled.span`
         ${styleByProps};
         animation-name: ${props.frames};
-        animation-delay: ${shiftDelay};
+        animation-delay: ${shiftDelay}ms;
       `;
 
       //Component
@@ -82,14 +90,10 @@ export default function Text_animate({ children, ...props }) {
     return letterArray.map((letter, key) => {
       const shiftDelay = params.shiftDelay * key;
 
+      let styleByProps = createStyled(props.styles);
       let Wrapper = styled.span`
-        display: inline-block;
-        overflow: hidden;
-        opacity: 0;
-        font-size: ${params.fontSize};
-        animation-name: ${animationName};
-        animation-fill-mode: forwards;
-        animation-duration: ${params.animationDuration}ms;
+        ${styleByProps};
+        animation-name: ${props.frames};
         animation-delay: ${shiftDelay}ms;
       `;
 
@@ -98,7 +102,6 @@ export default function Text_animate({ children, ...props }) {
         display: inline-block;
         overflow: hidden;
         opacity: 0;
-        animation-name: ${animationName};
         animation-fill-mode: forwards;
         animation-duration: ${params.animationDuration}ms;
         animation-delay: ${shiftDelay}ms;
@@ -136,5 +139,5 @@ export default function Text_animate({ children, ...props }) {
   }, []);
 
   console.log("render Text Animate");
-  return <content.tag>{text}</content.tag>;
+  return <content.tag className={classNameByProps}>{text}</content.tag>;
 }

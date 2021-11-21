@@ -6,7 +6,10 @@ import Card from "./../engine/component/Card/Card";
 import { HeroesContext } from "./../engine/context/characProvider";
 
 import Text_animate from "./../engine/component/TextAnimate/TextAnimate";
-import { translatleByBottom } from "../engine/component/TextAnimate/styledAnimation";
+import {
+  translateLeftToRight,
+  translatleByBottom,
+} from "../engine/component/TextAnimate/styledAnimation";
 
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
@@ -48,9 +51,27 @@ export default function Home() {
       <main className={`${styles.main} ${styles[heroe.current.heroesID]}`}>
         <Header />
 
-        <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
         <section className={styles.identity}>
           <div className={styles.temp}>
+            <Text_animate
+              params={{
+                method: "letterByLetter",
+                shiftDelay: 80,
+                spacingDimension: "10px",
+              }}
+              key={heroe.current.id + "_title"}
+              frames={translateLeftToRight}
+              styles={{
+                display: "inline-block",
+                overflow: "hidden",
+                opacity: 0,
+                "animation-fill-mode": "forwards",
+                "animation-duration": "500ms",
+              }}
+            >
+              <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
+            </Text_animate>
+
             <Text_animate
               params={{
                 method: "fullText",
@@ -58,14 +79,13 @@ export default function Home() {
               key={heroe.current.id}
               frames={translatleByBottom}
               styles={{
-                tag: "span",
                 display: "inline-block",
                 overflow: "hidden",
                 "font-size": "16px",
                 "animation-fill-mode": "forwards",
                 "animation-duration": "500ms",
                 "line-height": "1.5rem",
-                opacity: "0.4",
+                "text-indent": "1rem",
               }}
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>
@@ -80,9 +100,8 @@ export default function Home() {
         <button
           className={`${styles.button} ${styles.buttonPrev}`}
           onClick={prevHeroes}
-        >
-          Prev
-        </button>
+          data-hsprev
+        ></button>
       </span>
 
       <span
@@ -91,9 +110,8 @@ export default function Home() {
         <button
           className={`${styles.button} ${styles.buttonNext}`}
           onClick={nextHeroes}
-        >
-          Next
-        </button>
+          data-hsnext
+        ></button>
       </span>
     </>
   );

@@ -42,7 +42,7 @@ export default function RadialChart({
         }
         setTimeout(() => {
           drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
-        }, index * (1000 / 60));
+        }, index * (300 / 60));
       }
     }, animationInterval * 300);
   };

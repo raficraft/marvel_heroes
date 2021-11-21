@@ -1,7 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
 export const createStyled = (styles) => {
-  const TAG = styles.tag;
-
   const cssForStyled = makeStringStyle(styles);
 
   const styledComponent = cssForStyled;
