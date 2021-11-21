@@ -100,9 +100,8 @@ export default function Home() {
         <button
           className={`${styles.button} ${styles.buttonPrev}`}
           onClick={prevHeroes}
-        >
-          Prev
-        </button>
+          data-hsprev
+        ></button>
       </span>
 
       <span
@@ -111,9 +110,8 @@ export default function Home() {
         <button
           className={`${styles.button} ${styles.buttonNext}`}
           onClick={nextHeroes}
-        >
-          Next
-        </button>
+          data-hsnext
+        ></button>
       </span>
     </>
   );

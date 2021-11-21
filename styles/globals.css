@@ -128,9 +128,10 @@ body::before{
   top: -50%;
   left: -50%;
   z-index: -1;
-  background : url(/assets/bg/diagonal-squares.png) 0 0 repeat;
-  transform: rotate(-30deg);
-  backdrop-filter: invert(100%);
+  background : url(/assets/bg/comics2.jpg) 0 0 no-repeat;
+  background-position: center;
+  background-size: 80% 80%;
+  transform: rotate(-20deg);
 }
 
 

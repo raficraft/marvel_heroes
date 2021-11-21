@@ -78,14 +78,131 @@ $rotate-arrow2 : -45deg;
 
   .button {
     $size: 3rem;
-    @include size($size, $size);
     border-radius: 50%;
     transition: 0.5s;
+
+    position: fixed;
+    content : '';
+    width : $size-arrowrapper;
+    height: $size-arrowrapper;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor : pointer;  
+    border : 2px solid rgb(191, 191, 191);
+    box-shadow: 2px 2px 2px 1px rgba(61, 61, 61, 0.2); ;
+    transition: 0.3s;
+
+    
 
     &:hover {
       transform: scale(1.2);
     }
   }
+
+  
+[data-hsprev],[data-hsnext]{
+
+  position: fixed;
+  content : '';
+  width : $size-arrowrapper;
+  height: $size-arrowrapper;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 100;
+  top : calc(50vh - ($size-arrowrapper) / 2 );  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor : pointer;  
+  border : 2px solid rgb(191, 191, 191);
+  box-shadow: 2px 2px 2px 1px rgba(61, 61, 61, 0.2); ;
+  transition: 0.3s;
+
+}
+
+
+
+[data-hsnext]{
+  right : 1rem;
+  box-shadow: 2px 2px 2px 1px rgba(61, 61, 61, 0.2); ;
+}
+
+[data-hsprev]{
+  left  : 1rem;
+  box-shadow: 2px 2px 2px 1px rgba(61, 61, 61, 0.2); ;
+}
+
+
+
+[data-hsprev]::before,[data-hsprev]::after{
+
+  position: absolute;
+  content : '';
+  width : calc(100% / 2);
+  height: $size-arrow;
+  border-radius: 0 3px 3px 0px; 
+}
+
+[data-hsprev]::before{
+  background-color: rgba(150, 150, 150,0.9);
+  transform-origin: bottom left;
+  transform: rotate($rotate-arrow);
+  top : calc(50% - (40% / 2));
+  left : 20%;
+}
+
+[data-hsprev]::after{
+  background-color: rgba(79, 79, 79, 0.9);
+  transform-origin: top left;
+  transform: rotate($rotate-arrow2) ;
+  top : calc(50% - (0% / 2));
+  left : 20%;
+  
+}
+
+
+[data-hsnext]::before,[data-hsnext]::after{
+
+  position: absolute;
+  content : '';
+  width : calc(100% / 2);
+  height: $size-arrow;
+  z-index: 100;
+  border-radius: 3px 0px 0px 3px; 
+}
+
+
+[data-hsnext]::before{
+  background-color: rgba(79, 79, 79,0.9);
+  transform-origin: bottom right;
+  transform: rotate($rotate-arrow);
+  top : calc(50% - (10% / 2));
+  left : 16%;
+  z-index: 105;
+}
+
+[data-hsnext]::after{
+  background-color: rgba(150, 150, 150,0.9);
+  transform-origin: top right;
+  transform: rotate($rotate-arrow2) ;
+  top : calc(50% - (27% / 2));
+  left : 16%;
+  z-index : 102
+  
+}
+
+
+[data-hsprev]:hover,[data-hsnext]:hover{
+  transform : scale(1.2)
+}
+
+
 }
 
 .whiteText {
@@ -93,20 +210,21 @@ $rotate-arrow2 : -45deg;
 }
 
 .ironman {
-  background-color: rgba(112, 34, 0, 0.6);
+  background-color: rgba(112, 34, 0, 0.7);
+  
 }
 
 .spiderman {
-  background-color: rgba(15, 27, 57, 0.6);
+  background-color: rgba(15, 27, 57, 0.7);
 }
 
 .hulk {
-  background-color: rgba(75, 3, 75, 0.6);
+  background-color: rgba(75, 3, 75, 0.7);
 }
 
 .thor {
-  background-color: rgba(41, 101, 255, 0.6);
+  background-color: rgba(41, 101, 255, 0.7);
 }
 .docteurstrange {
-  background-color: rgba(58, 53, 53, 0.6);
+  background-color: rgba(58, 53, 53, 0.7);
 }
