@@ -1,42 +1,31 @@
-
-
-.container{
-
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex: 6;
-
-
-.bigImg{
-  width : clamp(150px, 100%, 100%);
-  height: clamp(150px, 100%, 500px);
-  object-fit:scale-down;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  img{
-    display: flex;
-    flex : 1;
-  }
-}
-
-
-
-.radial{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%;
-}
-}
-
-@keyframes toto {
-
-  0%{opacity : 0; font-weight: bold;}
-  100%{opacity: 1; font-weight: bold;}
+  padding : 2rem;
   
+
+  .bigImg {
+    max-width: 700px;
+    max-height: 500px;
+    object-fit: scale-down;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    img {
+      display: flex;
+      flex: 1;
+    }
+  }
+
+  .radial {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+  }
 }

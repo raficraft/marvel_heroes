@@ -8,7 +8,6 @@
   transition: all;
   transition-duration: 0.5s;
   position: relative;
- 
 }
 
 .footer {
@@ -28,82 +27,86 @@
   flex-grow: 1;
 }
 
-.identity{
+.identity {
   display: flex;
-  flex : 1;
+  flex: 1;
   justify-content: space-around;
 }
 
-.temp{
+.temp {
   display: flex;
   flex-direction: column;
   flex: 4;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 2rem;
+  margin: 5rem 0rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+
 }
 
 .title {
   align-self: flex-start;
-  padding-bottom : 2rem;
-  color : red;
+  padding-bottom: 2rem;
+  color: red;
   animation-duration: 0.8s;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.button_container{
+$size-arrowrapper : 50px;
+$size-arrow : 20%;
+$rotate-arrow : 45deg;
+$rotate-arrow2 : -45deg;
+
+.button_container {
   position: fixed;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width : 3rem;
-  
+  width: 3rem;
 
-  &Prev{
-    left : 10px
+  &Prev {
+    left: 10px;
   }
-  &Next{
-    right : 10px;
+  &Next {
+    right: 10px;
   }
 
-  .button{
-    $size : 3rem;
-    @include size($size,$size);
-    border-radius: 50%; 
-    transition : 0.5s;
+  .button {
+    $size: 3rem;
+    @include size($size, $size);
+    border-radius: 50%;
+    transition: 0.5s;
 
-    &:hover{
+    &:hover {
       transform: scale(1.2);
     }
-  
   }
-
 }
 
-
-.whiteText{
-  color :white
+.whiteText {
+  color: rgb(49, 49, 49); 
 }
 
-
-
-.ironman{
-  background-color: rgba(163, 145, 6,.9);
+.ironman {
+  background-color: rgba(112, 34, 0, 0.6);
 }
 
-.spiderman{
-  background-color: rgba(15, 27, 57, .9);
+.spiderman {
+  background-color: rgba(15, 27, 57, 0.6);
 }
 
-.hulk{
-  background-color: rgba(75, 3, 75,.9);
+.hulk {
+  background-color: rgba(75, 3, 75, 0.6);
 }
 
-.thor{
-  background-color: rgba(41, 101, 255,.9);
+.thor {
+  background-color: rgba(41, 101, 255, 0.6);
 }
-.docteurstrange{
-  background-color: rgba(58, 53, 53, 0.9);
+.docteurstrange {
+  background-color: rgba(58, 53, 53, 0.6);
 }

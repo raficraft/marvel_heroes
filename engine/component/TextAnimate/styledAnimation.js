@@ -107,10 +107,22 @@ export const textAnimate = (animation) => {
   }
 };
 
-export const translateLeftToRight = keyframes`
+export const translateRightToLeft = keyframes`
 0%{ 
   opacity : 0;
   transform: translateX(100%);
+  filter: blur(10px);
+}
+100%{ 
+  opacity : 1;
+  transform: translateX(0);
+  filter: blur(0px);
+}`;
+
+export const translateLeftToRight = keyframes`
+0%{ 
+  opacity : 0;
+  transform: translateX(-100%);
   filter: blur(10px);
 }
 100%{ 

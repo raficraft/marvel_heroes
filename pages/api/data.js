@@ -102,8 +102,8 @@ export const heroes = [
     strength: 2,
     imageSize: {
       big: {
-        x: 820,
-        y: 630,
+        x: 500,
+        y: 360,
       },
     },
   },

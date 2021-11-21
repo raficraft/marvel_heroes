@@ -55,18 +55,21 @@ export default function Home() {
           <div className={styles.temp}>
             <Text_animate
               params={{
-                method: "fullText",
+                method: "letterByLetter",
+                shiftDelay: 80,
+                spacingDimension: "10px",
               }}
               key={heroe.current.id + "_title"}
               frames={translateLeftToRight}
               styles={{
                 display: "inline-block",
                 overflow: "hidden",
+                opacity: 0,
                 "animation-fill-mode": "forwards",
                 "animation-duration": "500ms",
               }}
             >
-              <h1 className={styles.title}>{heroe.current.heroes_name} </h1>
+              <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
             </Text_animate>
 
             <Text_animate
@@ -82,6 +85,7 @@ export default function Home() {
                 "animation-fill-mode": "forwards",
                 "animation-duration": "500ms",
                 "line-height": "1.5rem",
+                "text-indent": "1rem",
               }}
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>

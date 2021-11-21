@@ -16,7 +16,6 @@ export default function Card(data) {
         <Image
           src={`/assets/heroes/${heroe.current.heroesID}/big.png`}
           alt="Picture of the author"
-          layout="intrinsic"
           objectFit="contain"
           width={heroe.current.imageSize.big.x}
           height={heroe.current.imageSize.big.y}
@@ -31,9 +30,9 @@ export default function Card(data) {
           label="durability"
           min={0}
           max={7}
-          size={120}
-          lineWidth={16}
-          padding={8}
+          size={100}
+          lineWidth={12}
+          padding={9}
           animationInterval={1}
         >
           <LabelChart label="durability" />
@@ -45,9 +44,9 @@ export default function Card(data) {
           label="energy"
           min={0}
           max={7}
-          size={120}
-          lineWidth={16}
-          padding={8}
+          size={100}
+          lineWidth={12}
+          padding={9}
           animationInterval={2}
         >
           <LabelChart label="energy" />
@@ -59,9 +58,9 @@ export default function Card(data) {
           label="fighting"
           min={0}
           max={7}
-          size={120}
-          lineWidth={16}
-          padding={8}
+          size={100}
+          lineWidth={12}
+          padding={9}
           animationInterval={3}
         >
           <LabelChart label="fighting" />
@@ -73,9 +72,9 @@ export default function Card(data) {
           label="intelligence"
           min={0}
           max={7}
-          size={120}
-          lineWidth={16}
-          padding={8}
+          size={100}
+          lineWidth={12}
+          padding={9}
           animationInterval={4}
         >
           <LabelChart label="intelligence" />
@@ -87,9 +86,9 @@ export default function Card(data) {
           label="speed"
           min={0}
           max={7}
-          size={120}
-          lineWidth={16}
-          padding={8}
+          size={100}
+          lineWidth={12}
+          padding={9}
           animationInterval={5}
         >
           <LabelChart label="speed" />
@@ -101,9 +100,9 @@ export default function Card(data) {
           label="strength"
           min={0}
           max={7}
-          size={120}
-          lineWidth={16}
-          padding={8}
+          size={100}
+          lineWidth={12}
+          padding={9}
           animationInterval={6}
         >
           <LabelChart label="strenght" />
