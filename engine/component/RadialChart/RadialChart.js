@@ -37,9 +37,7 @@ export default function RadialChart({
     setTimeout(() => {
       for (let index = 0; index <= score * 10; index++) {
         let ratio = (index - min) / (max - min) / 10;
-        if (index === 1) {
-          console.log(ratio + " " + score, index);
-        }
+
         setTimeout(() => {
           drawCircle({ ctx, size, lineWidth, strokeStyle, padding, ratio });
         }, index * (300 / 60));

@@ -4,18 +4,19 @@
   justify-content: space-between;
   align-items: center;
   flex: 6;
-  padding : 2rem;
+  padding : 0 2rem;
   
 
   .bigImg {
-    max-width: 700px;
-    max-height: 500px;
+    max-width: clamp(150px, 750px ,750px);
+    max-height: clamp(150px, 570px ,570px);
     object-fit: scale-down;
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     flex: 1;
+    margin-bottom: 1rem;
     img {
       display: flex;
       flex: 1;

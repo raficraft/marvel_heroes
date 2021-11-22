@@ -6,7 +6,7 @@ import { createStyled } from "./animation";
 export default function Text_animate({ children, ...props }) {
   // console.log(children.type);
 
-  console.log("children in text animation", children.props.children);
+  //console.log("children in text animation", children.props.children);
 
   const [classNameByProps, setClassNameByProps] = useState(
     children.props.className
@@ -71,7 +71,6 @@ export default function Text_animate({ children, ...props }) {
   };
 
   const letterByLetter = (content) => {
-    console.log("letterByLetter");
     const words = content.trim(" ").split(" ");
     const letterArray = [];
     const wordsCount = words.length - 1;

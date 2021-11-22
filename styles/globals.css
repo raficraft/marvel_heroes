@@ -191,3 +191,10 @@ button {
 h1{
   font-size : 1.5rem;
 }
+
+hr{
+  background-color: rgb(89, 89, 89);
+  width: 100%;
+  height: 1px;
+  margin: 2rem 0;
+}

@@ -16,8 +16,8 @@ export const heroes = [
     strength: 6,
     imageSize: {
       big: {
-        x: 500,
-        y: 469,
+        x: 516,
+        y: 570,
       },
     },
   },
@@ -106,5 +106,34 @@ export const heroes = [
         y: 360,
       },
     },
+  },
+  {
+    id: 5,
+    heroes_name: "captain marvel",
+    heroesID: "captainmarvel",
+    identities: "carol denvers",
+    desc: `Former Air Force pilot and intelligence agent Carol Danvers pursued her dream of space exploration as a NASA employee, but her life forever changed when she was accidentally transformed into a human-Kree hybrid with extraordinary powers.
+
+    Now, Carol is the latest warrior to embrace the mantle of Captain Marvel, and she has taken her place as one of the world’s mightiest heroes.`,
+    big_img: "lol",
+    durability: 6,
+    energy: 6,
+    fighting: 4,
+    intelligence: 3,
+    speed: 5,
+    strength: 5,
+    imageSize: {
+      big: {
+        x: 344,
+        y: 570,
+      },
+    },
+    powers: [
+      "FlightEnergy",
+      "BlastsSuperhuman",
+      "DurabilitySuperhuman",
+      "Strength",
+    ],
+    group: ["Alpha", "FlightAvengers", "A-ForceKree"],
   },
 ];

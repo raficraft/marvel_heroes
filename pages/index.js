@@ -90,6 +90,7 @@ export default function Home() {
             >
               <p className={styles.whiteText}>{heroe.current.desc}</p>
             </Text_animate>
+            <hr></hr>
           </div>
           <Card />
         </section>
