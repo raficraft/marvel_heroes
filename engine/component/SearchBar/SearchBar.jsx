@@ -44,8 +44,6 @@ export const SearchBar = () => {
     }
   };
 
-  console.log("render SEARCH BAR");
-
   const getHeroes = (key) => {
     setHeroe((s) => ({
       ...s,

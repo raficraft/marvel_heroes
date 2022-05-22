@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../engine/component/Header/Header";
 import styles from "../styles/Home.module.scss";
 import Card from "./../engine/component/Card/Card";
@@ -10,15 +10,20 @@ import {
   translateLeftToRight,
   translatleByBottom,
 } from "../engine/component/TextAnimate/styledAnimation";
+import useGetimages from "../engine/hooks/useGetImages";
 
 export default function Home() {
   const { heroe, setHeroe } = useContext(HeroesContext);
+
+  const [filesInfo, loading] = useGetimages([
+    `heroes/${heroe.current.heroesID}/`,
+  ]);
 
   const lastIndex = heroe.all.length - 1;
 
   const nextHeroes = () => {
     const nextID = heroe.all[heroe.current.id].id + 1;
-    nextID > lastIndex ? (nextID = 0) : (nextID = nextID);
+    nextID > lastIndex ? (nextID = 0) : nextID;
 
     setHeroe((s) => ({
       ...s,
@@ -36,8 +41,6 @@ export default function Home() {
     }));
   };
 
-  console.log("render INDEX");
-
   return (
     <>
       <Head>
@@ -53,46 +56,47 @@ export default function Home() {
 
         <section className={styles.identity}>
           <div className={styles.temp}>
-            <Text_animate
-              params={{
-                method: "letterByLetter",
-                shiftDelay: 80,
-                spacingDimension: "10px",
-              }}
-              key={heroe.current.id + "_title"}
-              frames={translateLeftToRight}
-              styles={{
-                display: "inline-block",
-                overflow: "hidden",
-                opacity: 0,
-                "animation-fill-mode": "forwards",
-                "animation-duration": "500ms",
-              }}
-            >
-              <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
-            </Text_animate>
+            <div className={styles.content}>
+              <Text_animate
+                params={{
+                  method: "letterByLetter",
+                  shiftDelay: 80,
+                  spacingDimension: "10px",
+                }}
+                key={heroe.current.id + "_title"}
+                frames={translateLeftToRight}
+                styles={{
+                  display: "inline-block",
+                  overflow: "hidden",
+                  opacity: 0,
+                  "animation-fill-mode": "forwards",
+                  "animation-duration": "500ms",
+                }}
+              >
+                <h1 className={styles.title}>{heroe.current.heroes_name}</h1>
+              </Text_animate>
 
-            <Text_animate
-              params={{
-                method: "fullText",
-              }}
-              key={heroe.current.id}
-              frames={translatleByBottom}
-              styles={{
-                display: "inline-block",
-                overflow: "hidden",
-                "font-size": "16px",
-                "animation-fill-mode": "forwards",
-                "animation-duration": "500ms",
-                "line-height": "1.5rem",
-                "text-indent": "1rem",
-              }}
-            >
-              <p className={styles.whiteText}>{heroe.current.desc}</p>
-            </Text_animate>
-            <hr></hr>
+              <Text_animate
+                params={{
+                  method: "fullText",
+                }}
+                key={heroe.current.id}
+                frames={translatleByBottom}
+                styles={{
+                  display: "inline-block",
+                  overflow: "hidden",
+                  "font-size": "16px",
+                  "animation-fill-mode": "forwards",
+                  "animation-duration": "500ms",
+                  "line-height": "1.5rem",
+                  "text-indent": "1rem",
+                }}
+              >
+                <p className={styles.whiteText}>{heroe.current.desc}</p>
+              </Text_animate>
+            </div>
           </div>
-          <Card />
+          {!loading && <Card heroe={heroe} img={filesInfo[0]} />}
         </section>
       </main>
       <span

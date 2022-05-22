@@ -98,14 +98,14 @@ export default function Text_animate({ children, ...props }) {
 
       if (!letter) {
         Wrapper = styled.span`
-        display: inline-block;
-        overflow: hidden;
-        opacity: 0;
-        animation-fill-mode: forwards;
-        animation-duration: ${params.animationDuration}ms;
-        animation-delay: ${shiftDelay}ms;
-        content = " ";
-        min-width : ${params.spacingDimension};
+          display: inline-block;
+          overflow: hidden;
+          opacity: 0;
+          animation-fill-mode: forwards;
+          animation-duration: ${params.animationDuration}ms;
+          animation-delay: ${shiftDelay}ms;
+          content: " ";
+          min-width: ${params.spacingDimension};
         `;
       }
 
